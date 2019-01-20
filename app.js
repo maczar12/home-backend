@@ -87,10 +87,12 @@ app.get('/', function (req, res) {
       if (err) {
         console.log('Error running count. Message:\n'+err);
       }
-      res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
+      res.send('Hello World!')
+      // res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
     });
   } else {
-    res.render('index.html', { pageCountMessage : null});
+      res.send('Hello World!')
+    // res.render('index.html', { pageCountMessage : null});
   }
 });
 
