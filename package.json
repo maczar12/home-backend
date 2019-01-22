@@ -10,7 +10,7 @@
     "precommit": "prettier --write --single-quote src/*.ts && git add .",
     "start": "node src/server.js | pino",
     "start-dev": "nodemon -e ts -x ts-node src/server.ts | pino",
-    "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*_test.js"
+    "test": ""
   },
   "repository": {
     "type": "git",
