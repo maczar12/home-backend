@@ -1,3 +1,11 @@
-/node_modules/
-npm-debug.log
-.idea
+node_modules
+package-lock.json
+.DS_Store
+
+# These are generated - safe to ignore
+*.js
+*.js.map
+*.d.ts
+
+tmp
+openshift.local.clusterup
