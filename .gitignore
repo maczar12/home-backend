@@ -9,3 +9,4 @@ package-lock.json
 
 tmp
 openshift.local.clusterup
+.idea
