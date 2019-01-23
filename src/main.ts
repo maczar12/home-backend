@@ -1,5 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
+import * as cron from 'cron';
+
+const cronJob = new cron.CronJob('0 * * * * *', () => {
+  console.log('---cron');
+});
+
+cronJob.start();
+
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
