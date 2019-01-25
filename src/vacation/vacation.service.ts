@@ -19,7 +19,10 @@ export class VacationService {
   }
 
   async findAll(): Promise<VacationOffer[]> {
-    return await this.vacationOfferModel.find().populate('prices').exec();
+    return await this.vacationOfferModel.find().populate({
+                path: 'prices',
+                model: this.vacationOfferPriceModel
+            }).exec();
   }
 
   async addPrice(createVacationOfferPriceDto: VacationOfferPriceDto) {
