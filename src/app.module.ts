@@ -17,7 +17,7 @@ import { ConfigService } from './config/config.service';
     //   }),
     //   inject: [ConfigService],
     // }),
-    // ConfigModule,
+    ConfigModule,
     // VacationModule,
   ],
   controllers: [AppController],
