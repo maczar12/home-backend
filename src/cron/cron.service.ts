@@ -14,7 +14,7 @@ export class CronService {
       console.log('---cron');
       this.vacationService.findAll().then(vacationOffer => {
         console.log('----vacationOffer', vacationOffer);
-        this.vacationService.addPrice(vacationOffer, {
+        this.vacationService.addPrice(vacationOffer[0], {
           price: '101.11',
           date: '999',
         });
