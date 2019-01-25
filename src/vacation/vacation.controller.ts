@@ -17,4 +17,16 @@ export class VacationController {
   async findAll(): Promise<VacationOffer[]> {
     return this.vacationService.findAll();
   }
+
+  @Get('show-current-prices')
+  async showCurrentPrices(): Promise<any[]> {
+    const vacationOffers = await this.vacationService.findAll();
+
+    vacationOffers.forEach(async offer => {
+      console.log('---vacationOffer', offer.name, await this.vacationService.getPrice(offer));
+    });
+
+    return vacationOffers;
+  }
+
 }

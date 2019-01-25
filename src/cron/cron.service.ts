@@ -10,15 +10,14 @@ export class CronService {
   }
 
   async start() {
-    const cronJob = new cron.CronJob('0 0 0 * * *', () => {
+    const cronJob = new cron.CronJob('0 0 6,8,12,16,20,23 * * *', () => {
       console.log('---cron');
-      // this.vacationService.findAll().then(vacationOffers => {
-      //   console.log('----vacationOffer', vacationOffers);
-      //   vacationOffers.forEach(async (offer) => {
-      //     const price = await this.vacationService.getPrice(offer);
-      //     this.vacationService.addPrice(offer, price);
-      //   });
-      // });
+      this.vacationService.findAll().then(vacationOffers => {
+        vacationOffers.forEach(async (offer) => {
+          const price = await this.vacationService.getPrice(offer);
+          this.vacationService.addPrice(offer, price);
+        });
+      });
     });
 
     cronJob.start();
