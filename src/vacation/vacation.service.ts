@@ -35,7 +35,7 @@ export class VacationService {
     });
   }
 
-  async getPrice() {
+  async getPrice(vacationOffer: Model<VacationOffer>) {
     return {
       price: '210.99',
       date: '2019-03-03',

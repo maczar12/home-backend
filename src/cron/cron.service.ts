@@ -15,7 +15,7 @@ export class CronService {
       this.vacationService.findAll().then(vacationOffers => {
         console.log('----vacationOffer', vacationOffers);
         vacationOffers.forEach(async (offer) => {
-          const price = await this.vacationService.getPrice();
+          const price = await this.vacationService.getPrice(offer);
           this.vacationService.addPrice(offer, price);
         });
       });
