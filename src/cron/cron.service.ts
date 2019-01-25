@@ -12,11 +12,11 @@ export class CronService {
   async start() {
     const cronJob = new cron.CronJob('0 * * * * *', () => {
       console.log('---cron');
-      this.vacationService.findAll().then(vacationOffer => {
-        console.log('----vacationOffer', vacationOffer);
-        this.vacationService.addPrice(vacationOffer[0], {
-          price: '101.11',
-          date: '999',
+      this.vacationService.findAll().then(vacationOffers => {
+        console.log('----vacationOffer', vacationOffers);
+        vacationOffers.forEach(async (offer) => {
+          const price = await this.vacationService.getPrice();
+          this.vacationService.addPrice(offer, price);
         });
       });
     });
