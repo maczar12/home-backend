@@ -23,7 +23,7 @@ export class VacationService {
   }
 
   async addPrice(createVacationOfferPriceDto: VacationOfferPriceDto) {
-    const createdVacationOfferPrice = new this.vacationOfferModel(createVacationOfferPriceDto);
+    const createdVacationOfferPrice = new this.vacationOfferPriceModel(createVacationOfferPriceDto);
     return await createdVacationOfferPrice.save();
   }
 
