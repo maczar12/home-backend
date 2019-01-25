@@ -6,14 +6,14 @@ import * as fs from 'fs';
 export class ConfigService {
   private readonly envConfig: { [key: string]: string };
 
-  constructor(filePath?: string) {
-    if (filePath === 'development') {
-      this.envConfig = dotenv.parse(fs.readFileSync(filePath));
+  constructor() {
+    if (process.env.NODE_ENV === 'development') {
+      this.envConfig = dotenv.parse(fs.readFileSync('development.env'));
     } else {
       this.envConfig = process.env;
     }
 
-    console.log('----111', this.envConfig, filePath);
+    console.log('----111', this.envConfig);
   }
 
   get(key: string): string {
