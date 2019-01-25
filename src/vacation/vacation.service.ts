@@ -19,12 +19,12 @@ export class VacationService {
   }
 
   async findAll(): Promise<VacationOffer[]> {
-    return await this.vacationOfferModel.find().exec();
+    return await this.vacationOfferModel.find().populate('prices').exec();
   }
 
   async addPrice(createVacationOfferPriceDto: VacationOfferPriceDto) {
     const createdVacationOfferPrice = new this.vacationOfferPriceModel(createVacationOfferPriceDto);
-    return await createdVacationOfferPrice.save().populate('vacationOffer').exec();
+    return await createdVacationOfferPrice.save();
   }
 
 }
