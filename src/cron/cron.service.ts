@@ -5,15 +5,15 @@ import { VacationService } from '../vacation/vacation.service';
 @Injectable()
 export class CronService {
   constructor(
-    // private readonly vacationService: VacationService
+    private readonly vacationService: VacationService,
   ) { }
 
   start() {
     const cronJob = new cron.CronJob('0 * * * * *', () => {
       console.log('---cron');
-      // this.vacationService.findAll().then(vacationOffer => {
-      //   console.log('----vacationOffer', vacationOffer);
-      // })
+      this.vacationService.findAll().then(vacationOffer => {
+        console.log('----vacationOffer', vacationOffer);
+      })
 
 
     });

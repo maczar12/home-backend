@@ -13,6 +13,7 @@ import { VacationOfferPriceSchema } from './schemas/vacation-offer-price.schema'
     ])],
   providers: [VacationService],
   controllers: [VacationController],
+  exports: [VacationService],
 })
 export class VacationModule {
 }
