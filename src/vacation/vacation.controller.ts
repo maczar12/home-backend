@@ -22,11 +22,13 @@ export class VacationController {
   async showCurrentPrices(): Promise<any[]> {
     const vacationOffers = await this.vacationService.findAll();
 
-    vacationOffers.forEach(async offer => {
-      console.log('---vacationOffer', offer.name, await this.vacationService.getPrice(offer));
-    });
+    const offers = [];
+    for (let offer of vacationOffers) {
+      const priceObj = await this.vacationService.getPrice(offer);
+      offers.push({name: offer.name, priceObj: priceObj });
+    }
 
-    return vacationOffers;
+    return offers;
   }
 
 }
