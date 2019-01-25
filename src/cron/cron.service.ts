@@ -10,7 +10,7 @@ export class CronService {
   }
 
   async start() {
-    const cronJob = new cron.CronJob('0 0 6,8,12,16,20,23 * * *', () => {
+    const cronJob = new cron.CronJob('0 0 6,8,12,16,18,20,23 * * *', () => {
       console.log('---cron');
       this.vacationService.findAll().then(vacationOffers => {
         vacationOffers.forEach(async (offer) => {
