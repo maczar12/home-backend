@@ -1,6 +1,7 @@
 import * as mongoose from 'mongoose';
 
 export const VacationOfferSchema = new mongoose.Schema({
+  _id: new mongoose.Types.ObjectId(),
   name: String,
   url: String,
   type: String,
