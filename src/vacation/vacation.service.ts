@@ -26,8 +26,13 @@ export class VacationService {
   }
 
   async addPrice(createVacationOfferPriceDto: VacationOfferPriceDto) {
+    const vacationOffer = await this.vacationOfferModel.find({_id: createVacationOfferPriceDto.vacationOffer});
+
     const createdVacationOfferPrice = new this.vacationOfferPriceModel(createVacationOfferPriceDto);
-    return await createdVacationOfferPrice.save();
+    return await createdVacationOfferPrice.save(() => {
+      vacationOffer.prices.push(createdVacationOfferPrice);
+      vacationOffer.save();
+    });
   }
 
 }
