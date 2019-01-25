@@ -24,7 +24,7 @@ export class VacationService {
 
   async addPrice(createVacationOfferPriceDto: VacationOfferPriceDto) {
     const createdVacationOfferPrice = new this.vacationOfferModel(createVacationOfferPriceDto);
-    return await createdVacationOfferPrice.save();
+    return await createdVacationOfferPrice.save().populate('vacationOffer').exec();
   }
 
 }

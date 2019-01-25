@@ -17,7 +17,7 @@ export class CronService {
         this.vacationService.addPrice({
           price: '11.11',
           date: '2222',
-          vacationOffer: vacationOffer._id,
+          vacationOffer: '5c48ac282365dc1930fef354',
         }).then(() => {
           this.vacationService.findAll().then(vacationOffer2 => {
             console.log('----vacationOffer2222', vacationOffer2);
