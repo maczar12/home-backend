@@ -30,8 +30,9 @@ export class VacationService {
 
     const createdVacationOfferPrice = new this.vacationOfferPriceModel(createVacationOfferPriceDto);
     return await createdVacationOfferPrice.save(() => {
-      vacationOffer.prices.push(createdVacationOfferPrice);
-      vacationOffer.save();
+      console.log('---+++', vacationOffer);
+      // vacationOffer.prices.push(createdVacationOfferPrice);
+      // vacationOffer.save();
     });
   }
 
