@@ -25,12 +25,11 @@ export class VacationService {
             }).exec();
   }
 
-  async addPrice(createVacationOfferPriceDto: VacationOfferPriceDto) {
-    const vacationOffer = await this.vacationOfferModel.findById(createVacationOfferPriceDto.vacationOffer);
+  async addPrice(vacationOffer: Model<VacationOffer>, createVacationOfferPriceDto: VacationOfferPriceDto) {
+    // const vacationOffer = await this.vacationOfferModel.findById(createVacationOfferPriceDto.vacationOffer);
 
     const createdVacationOfferPrice = new this.vacationOfferPriceModel(createVacationOfferPriceDto);
     return await createdVacationOfferPrice.save(() => {
-      console.log('---+++', vacationOffer);
       vacationOffer.prices.push(createdVacationOfferPrice);
       vacationOffer.save();
     });

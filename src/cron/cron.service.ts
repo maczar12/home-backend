@@ -14,12 +14,10 @@ export class CronService {
       console.log('---cron');
       this.vacationService.findAll().then(vacationOffer => {
         console.log('----vacationOffer', vacationOffer);
-        this.vacationService.addPrice({
-          price: '99.11',
+        this.vacationService.addPrice(vacationOffer, {
+          price: '101.11',
           date: '999',
-          vacationOffer: vacationOffer[0]._id,
         });
-
       });
     });
 
