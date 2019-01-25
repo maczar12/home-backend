@@ -10,15 +10,15 @@ import { ConfigService } from './config/config.service';
 @Module({
   imports: [
     CronModule,
-    MongooseModule.forRootAsync({
-      imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({
-        uri: configService.getMongoDbUri(),
-      }),
-      inject: [ConfigService],
-    }),
-    ConfigModule,
-    VacationModule,
+    // MongooseModule.forRootAsync({
+    //   imports: [ConfigModule],
+    //   useFactory: async (configService: ConfigService) => ({
+    //     uri: configService.getMongoDbUri(),
+    //   }),
+    //   inject: [ConfigService],
+    // }),
+    // ConfigModule,
+    // VacationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
