@@ -49,14 +49,14 @@ export class VacationService {
     return {
       price: price.toString(),
       date: new Date().toISOString(),
-    }
+    };
   }
 
   private getPriceTui(content) {
-    return cheerio('.price-value__amount', content).text().replace(/\s/g, '');
+    return cheerio('.offer-code-loaded .price-value__amount', content).first().text().replace(/\s/g, '');
   }
 
   private getPriceItaka(content) {
-    return cheerio('.pricesmall', content).first().text().replace('pln', '');
+    return cheerio('.price-box_price', content).text().replace(/\s/g, '').replace('pln', '');
   }
 }

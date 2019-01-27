@@ -19,9 +19,17 @@ export class ConfigService {
   }
 
   getMongoDbUri() {
+
+    const user = (this.get('MONGODB_USER') && this.get('MONGODB_USER').length > 0) ? this.get('MONGODB_USER') + ':' + this.get('MONGODB_PASSWORD') + '@' : '';
+
+    console.log('----', this.get('DATABASE_SERVICE_NAME') + '://' +
+      user +
+      this.get('MONGODB_SERVICE_HOST') + ':' +
+      this.get('MONGODB_SERVICE_PORT') + '/' +
+      this.get('MONGODB_DATABASE'));
+
     return this.get('DATABASE_SERVICE_NAME') + '://' +
-      this.get('MONGODB_USER') + ':' +
-      this.get('MONGODB_PASSWORD') + '@' +
+      user +
       this.get('MONGODB_SERVICE_HOST') + ':' +
       this.get('MONGODB_SERVICE_PORT') + '/' +
       this.get('MONGODB_DATABASE');
